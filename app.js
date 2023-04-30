@@ -159,7 +159,7 @@ app.get("/verifyEmail/:id", (req, res) => {
     return res.status(200);
 })
 
-app.get("/forget_password", (req, res) => {
+app.get("/forgetPassword", (req, res) => {
     res.render("forgetPassword");
 })
 
@@ -285,8 +285,8 @@ app.post('/forgetPassword', async (req, res) => {
     try {
         let isUser;
 
-        console.log(validator.isEmail('loginId'))
-        if (validator.isEmail('loginId')) {
+        console.log(validator.isEmail(loginId))
+        if (validator.isEmail(loginId)) {
             isUser = await userSchema.findOne({ email: loginId });
         } else {
             isUser = await userSchema.findOne({ username: loginId });
@@ -299,8 +299,8 @@ app.post('/forgetPassword', async (req, res) => {
             })
         };
 
-        if (!isUser.emailAuth) {
-            console.log(isUser.emailAuth);
+        if (!isUser.emailAuthenticated) {
+            console.log(isUser.emailAuthenticated);
             return res.send({
                 status: 400,
                 message: "please verify email first",
@@ -316,7 +316,7 @@ app.post('/forgetPassword', async (req, res) => {
         }
         try {
             const hashPassword = await bcrypt.hash(newpassword, 7);
-            const update = await userSchema.findOneAndUpdate({ username: loginId }, { password: hashPassword });
+            const update = await userSchema.findOneAndUpdate({ email: loginId }, { password: hashPassword });
 
         } catch (error) {
             return res.status({
