@@ -52,19 +52,9 @@ const sendVerificationEmail = (email, verificationToken) => {
         from: sender,
         to: email,
         subject: "Email Verification for  App",
-        html: `<a href=http://localhost:8000/verifyEmail/${verificationToken}>Click Here </a> to verify your account.`,
+        html: `<a href="https://newt-boot.cyclic.app/verifyEmail/${verificationToken}">Click Here </a> to verify your account.`,
     };
-    // if(where === "verifyemail"){
 
-    // }else{
-    //     let mailOptions = {
-    //       from: sender,
-    //       to: email,
-    //       subject: "Email Verification for  App",
-    //       html: `Press <a href=http://localhost:3000/forgetPassword/${verificationToken}> Here </a> to verify your account.`,
-    //     };
-
-    // }
 
     mailer.sendMail(mailOptions, function (err, response) {
         if (err) throw err;

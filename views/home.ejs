@@ -7,22 +7,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
-        .design {
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+
+        .container {
+
+            text-align: center;
+        }
+
+        .heading {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .sub-container {
             width: 70%;
             margin: auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            background-color: black;
+            padding: 1rem;
+        }
+
+        .sub-container a {
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
         }
     </style>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
 </head>
 
 <body>
-    <div class="container text-center">
-        <h1 class="display-4  text-center py-1">Welcome</h1>
-        <div class="jumbotron p-3 design ">
+    <div class="container">
+        <h1 class="Heading">Welcome</h1>
+        <div class="sub-container ">
             <a href="/register">Register</a>
             <a href="/login">Login</a>
 
