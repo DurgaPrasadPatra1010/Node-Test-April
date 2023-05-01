@@ -52,7 +52,7 @@ const sendVerificationEmail = (email, verificationToken) => {
         from: sender,
         to: email,
         subject: "Email Verification for  App",
-        html: `<a href="https://newt-boot.cyclic.app/verifyEmail/${verificationToken}">Click Here </a> to verify your account.`,
+        html: `<a href="http://localhost:8000/verifyEmail/${verificationToken}">Click Here </a> to verify your account.`,
     };
 
 
